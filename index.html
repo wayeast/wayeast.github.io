@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayeast Solutions | Custom Tech for Small Businesses</title>
+    <style>
+        :root {
+            --primary-color: #333333;
+            --secondary-color: #f3c30e;
+            --dark-color: #1a1a1a;
+            --light-color: #e0e0e0;
+            --success-color: #c7b07b;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #f8f9fa;
+            background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #181818);
+            color: #fff;
+            padding: 2rem 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #222222, #000000);
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-color);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn:hover {
+            background: #f0bb00;
+            transform: translateY(-3px);
+        }
+        
+        .btn-light {
+            background: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .btn-light:hover {
+            background: #bdc3c7;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+        
+        .section-title p {
+            color: #777;
+            font-size: 1.2rem;
+        }
+        
+        .services {
+            background-color: #fff;
+        }
+        
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: var(--box-shadow);
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .service-card p {
+            color: #777;
+        }
+        
+        .about {
+            background-color: #f8f9fa;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .about-content {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .about-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        
+        .tech-badge {
+            background: #333;
+            color: var(--light-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-left: 3px solid var(--secondary-color);
+        }
+        
+        .process {
+            background-color: white;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            color: var(--dark-color);
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+        
+        .call-to-action {
+            background: linear-gradient(135deg, var(--dark-color), #000000);
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .call-to-action::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-color);
+        }
+        
+        .call-to-action h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .call-to-action p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">Wayeast<span>Solutions</span></div>
+            <nav>
+                <a href="#services" class="btn btn-light">Our Services</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Make Your Business Run Smoother with Custom Tech</h1>
+            <p>Turn tedious, manual tasks into efficient, automated workflows. No tech jargon, just practical solutions built for your specific needs.</p>
+            <a href="#contact" class="btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What I Offer</h2>
+                <p>Simple tech solutions to real business problems</p>
+            </div>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>Process Automation</h3>
+                    <p>Turn repetitive tasks into automated workflows that save time and reduce mistakes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Custom Applications</h3>
+                    <p>Mobile and web apps built specifically for how your business works.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Integration</h3>
+                    <p>Use AI to make better decisions and handle tasks that would otherwise require human time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+                            <div class="section-title">
+                <h2>Hi, I'm Huston</h2>
+            </div>
+            <div class="about-container">
+                <div class="about-content">
+                    <p>I've spent the last decade creating software solutions for businesses of all sizes. From small startups to larger enterprises, I've seen what works and what doesn't.</p>
+                    <p>As a technical co-founder of multiple startups, I've built everything from backend systems to mobile apps. My time at companies like Deepgram taught me how to apply AI technologies in ways that actually help businesses, not just add complexity.</p>
+                    <p>I focus on building things that work. No unnecessary features, no overcomplicated interfaces – just straightforward solutions to help your business run better.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Rust</span>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Javascript</span>
+                        <span class="tech-badge">Swift</span>
+                        <span class="tech-badge">AI/ML</span>
+                        <span class="tech-badge">Web Apps</span>
+                        <span class="tech-badge">Mobile Apps</span>
+                        <span class="tech-badge">Automation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>How I Work</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Quick 20-Minute Chat</h3>
+                    <p>Tell me about the tasks that slow you down. We'll figure out if they can be automated and what it would cost.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Building Your Solution</h3>
+                    <p>I'll create something that's easy to use and does exactly what you need – no unnecessary bells and whistles.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Support When You Need It</h3>
+                    <p>Once your solution is up and running, I'll be available for maintenance and updates whenever you need them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action" id="contact">
+        <div class="container">
+            <h2>Ready to Make Your Business More Efficient?</h2>
+            <p>Let's talk about how I can help automate those time-consuming tasks that are slowing your business down.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4Am3MEJGF34IH7wLSMpF5vnipUSiuzUf_g9opJCUvWwFihw/viewform?usp=header" class="btn">Schedule a 20-Minute Chat</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="contact-info">
+                <p>Based in Oakland, CA</p>
+            </div>
+            <p>&copy; 2025 Wayeast Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</html>
