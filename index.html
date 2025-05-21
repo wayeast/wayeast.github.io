@@ -113,6 +113,64 @@
         .btn-light:hover {
             background: #bdc3c7;
         }
+
+	.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--dark-color);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #f0bb00;
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-large {
+    font-size: 1.2rem;  /* Larger text */
+    padding: 14px 28px;  /* More internal spacing */
+    font-weight: 600;  /* Slightly bolder text */
+    letter-spacing: 0.5px;  /* Improved readability */
+}
+	/* Attractive glow effect for buttons */
+.btn-glow {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(243, 195, 14, 0.4);
+    animation:  2s infinite;
+}
+
+.btn-glow:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    opacity: 0;
+    z-index: -1;
+    animation: ripple 3s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 15px rgba(243, 195, 14, 0.4); }
+    50% { box-shadow: 0 0 25px rgba(243, 195, 14, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(243, 195, 14, 0.4); }
+}
+
+@keyframes ripple {
+    0% { opacity: 0; transform: scale(0.5); }
+    25% { opacity: 0.5; }
+    100% { opacity: 0; transform: scale(1.2); }
+}
         
         section {
             padding: 5rem 0;
@@ -351,6 +409,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container header-content">
@@ -377,19 +436,25 @@
             </div>
             <div class="services-container">
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>Process Automation</h3>
-                    <p>Turn repetitive tasks into automated workflows that save time and reduce mistakes.</p>
+                    <a href="#process-automation">
+                        <div class="service-icon">💼</div>
+                        <h3>Process Automation</h3>
+                        <p>Turn repetitive tasks into automated workflows that save time and reduce mistakes.</p>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Custom Applications</h3>
-                    <p>Mobile and web apps built specifically for how your business works.</p>
+                    <a href="#custom-applications">
+                        <div class="service-icon">📱</div>
+                        <h3>Custom Applications</h3>
+                        <p>Mobile and web apps built specifically for how your business works.</p>
+                    </a>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>AI Integration</h3>
-                    <p>Use AI to make better decisions and handle tasks that would otherwise require human time.</p>
+                    <a href="#ai-integration">
+                        <div class="service-icon">🤖</div>
+                        <h3>AI Integration</h3>
+                        <p>Use AI to make better decisions and handle tasks that would otherwise require human time.</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -397,25 +462,72 @@
 
     <section class="about" id="about">
         <div class="container">
-                            <div class="section-title">
+            <div class="section-title">
                 <h2>Hi, I'm Huston</h2>
             </div>
             <div class="about-container">
                 <div class="about-content">
-                    <p>I've spent the last decade creating software solutions for businesses of all sizes. From small startups to larger enterprises, I've seen what works and what doesn't.</p>
-                    <p>As a technical co-founder of multiple startups, I've built everything from backend systems to mobile apps. My time at companies like Deepgram taught me how to apply AI technologies in ways that actually help businesses, not just add complexity.</p>
-                    <p>I focus on building things that work. No unnecessary features, no overcomplicated interfaces – just straightforward solutions to help your business run better.</p>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Rust</span>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Javascript</span>
-                        <span class="tech-badge">Swift</span>
-                        <span class="tech-badge">AI/ML</span>
-                        <span class="tech-badge">Web Apps</span>
-                        <span class="tech-badge">Mobile Apps</span>
-                        <span class="tech-badge">Automation</span>
-                    </div>
+                    <p>I've spent the last decade creating practical software solutions for businesses just like yours. From small local shops to growing companies, I understand the challenges you face every day.</p>
+                    <p>My experience as a technical co-founder has taught me how to build solutions that actually solve real problems. At Deepgram, I worked with cutting-edge AI technologies and discovered ways to make them genuinely useful for everyday business needs.</p>
+                    <p>My philosophy is simple: build things that work. No unnecessary features, no overcomplicated interfaces – just straightforward solutions to help your business run better.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process-automation" class="service-detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>Process Automation</h2>
+            </div>
+            <div class="service-detail-content">
+                <p>Are you spending hours each week on repetitive tasks that could be automated? I can help you reclaim that time.</p>
+                <h3>What I can automate for you:</h3>
+                <ul>
+                    <li><strong>Data Collection & Reporting:</strong> Automatically gather information from multiple sources (spreadsheets, databases, online services) and create organized reports – no more manual copy-pasting.</li>
+                    <li><strong>Email & Document Processing:</strong> Have your system scan incoming emails and documents for important information, then take action based on what it finds.</li>
+                    <li><strong>Workflow Automation:</strong> Connect your existing tools and services to create seamless workflows that happen automatically when triggered.</li>
+                </ul>
+                <p>A client recently saved 15+ hours per week after I built a system that automatically processes invoices from their email, extracts the important details, and updates their accounting software – all without human intervention.</p>
+                <a href="#contact" class="btn">Automate Your Processes</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="custom-applications" class="service-detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>Custom Applications</h2>
+            </div>
+            <div class="service-detail-content">
+                <p>Off-the-shelf software never quite fits your specific needs. I build applications tailored exactly to how your business operates.</p>
+                <h3>Solutions I can create for you:</h3>
+                <ul>
+                    <li><strong>Customer Portals:</strong> Give your clients a dedicated space to view their information, make requests, and interact with your business.</li>
+                    <li><strong>Internal Tools:</strong> Streamline your team's workflows with custom dashboards and applications that handle your unique processes.</li>
+                    <li><strong>Mobile Solutions:</strong> Keep your team connected and productive with mobile apps that work seamlessly with your existing systems.</li>
+                </ul>
+                <p>A local service business recently doubled their capacity after I built them a custom scheduling and dispatch system that replaced their mess of spreadsheets and text messages.</p>
+                <a href="#contact" class="btn">Get Your Custom Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-integration" class="service-detail">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI Integration</h2>
+            </div>
+            <div class="service-detail-content">
+                <p>AI isn't just for tech giants – your small business can benefit too. With my background in speech AI and founding AI-powered startups, I can help you implement practical AI solutions.</p>
+                <h3>How AI can help your business:</h3>
+                <ul>
+                    <li><strong>Customer Service Automation:</strong> Implement AI chatbots or voice assistants that can handle common questions and requests 24/7.</li>
+                    <li><strong>Data Analysis:</strong> Use AI to spot patterns in your business data that humans might miss, helping you make better decisions.</li>
+                    <li><strong>Speech Recognition:</strong> Convert customer calls or meetings into searchable text automatically, making it easy to reference important information later.</li>
+                </ul>
+                <p>For example, drawing from my experience at Deepgram, I recently helped a small healthcare company implement a system that automatically onboards new patients over the phone.</p>
+                <a href="#contact" class="btn">Bring AI to Your Business</a>
             </div>
         </div>
     </section>
@@ -449,7 +561,7 @@
         <div class="container">
             <h2>Ready to Make Your Business More Efficient?</h2>
             <p>Let's talk about how I can help automate those time-consuming tasks that are slowing your business down.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4Am3MEJGF34IH7wLSMpF5vnipUSiuzUf_g9opJCUvWwFihw/viewform?usp=header" class="btn">Contact me for a Consultation</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4Am3MEJGF34IH7wLSMpF5vnipUSiuzUf_g9opJCUvWwFihw/viewform?usp=header" class="btn btn-primary btn-large btn-glow">Contact me for a Consultation</a>
         </div>
     </section>
 
@@ -461,4 +573,5 @@
             <p>&copy; 2025 Wayeast Solutions. All rights reserved.</p>
         </div>
     </footer>
+</body>
 </html>
